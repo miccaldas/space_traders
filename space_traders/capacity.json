@@ -1,0 +1,155 @@
+{
+    "data": {
+        "cargo": {
+            "capacity": 30,
+            "inventory": [
+                {
+                    "description": "A raw, unprocessed form of silver, often found in mines and underground deposits on planets and moons.",
+                    "name": "Silver Ore",
+                    "symbol": "SILVER_ORE",
+                    "units": 5
+                },
+                {
+                    "description": "A valuable ore used in the production of gold and other precious metals. Gold ore is often used in the production of jewelry, coins, and other decorative items, as well as in the production of electronics and other high-tech applications.",
+                    "name": "Gold Ore",
+                    "symbol": "GOLD_ORE",
+                    "units": 4
+                },
+                {
+                    "description": "A common and valuable ore used in the production of steel and other alloys.",
+                    "name": "Iron Ore",
+                    "symbol": "IRON_ORE",
+                    "units": 6
+                },
+                {
+                    "description": "A valuable ore used in the production of copper and other alloys. Copper ore is an essential component in the production of electronic components and wiring.",
+                    "name": "Copper Ore",
+                    "symbol": "COPPER_ORE",
+                    "units": 8
+                },
+                {
+                    "description": "High-purity quartz sand used in the production of glass and ceramics.",
+                    "name": "Quartz Sand",
+                    "symbol": "QUARTZ_SAND",
+                    "units": 7
+                }
+            ],
+            "units": 30
+        },
+        "crew": {
+            "capacity": 0,
+            "current": 0,
+            "morale": 100,
+            "required": 0,
+            "rotation": "STRICT",
+            "wages": 0
+        },
+        "engine": {
+            "condition": 100,
+            "description": "A basic low-energy propulsion system that generates thrust for interplanetary travel.",
+            "name": "Impulse Drive I",
+            "requirements": {
+                "crew": 0,
+                "power": 1
+            },
+            "speed": 2,
+            "symbol": "ENGINE_IMPULSE_DRIVE_I"
+        },
+        "frame": {
+            "condition": 100,
+            "description": "A small, unmanned spacecraft used for various tasks, such as surveillance, transportation, or combat.",
+            "fuelCapacity": 100,
+            "moduleSlots": 3,
+            "mountingPoints": 2,
+            "name": "Frame Drone",
+            "requirements": {
+                "crew": -3,
+                "power": 1
+            },
+            "symbol": "FRAME_DRONE"
+        },
+        "fuel": {
+            "capacity": 100,
+            "consumed": {
+                "amount": 36,
+                "timestamp": "2023-05-30T02:49:06.484Z"
+            },
+            "current": 100
+        },
+        "modules": [
+            {
+                "capacity": 30,
+                "description": "A module that increases a ship's cargo capacity.",
+                "name": "Cargo Hold",
+                "requirements": {
+                    "crew": 0,
+                    "power": 1,
+                    "slots": 1
+                },
+                "symbol": "MODULE_CARGO_HOLD_I"
+            },
+            {
+                "description": "Crushes and processes extracted minerals and ores into their component parts, filters out impurities, and containerizes them into raw storage units.",
+                "name": "Mineral Processor",
+                "requirements": {
+                    "crew": 0,
+                    "power": 1,
+                    "slots": 2
+                },
+                "symbol": "MODULE_MINERAL_PROCESSOR_I"
+            }
+        ],
+        "mounts": [
+            {
+                "description": "A basic mining laser that can be used to extract valuable minerals from asteroids and other space objects.",
+                "name": "Mining Laser I",
+                "requirements": {
+                    "crew": 0,
+                    "power": 1
+                },
+                "strength": 10,
+                "symbol": "MOUNT_MINING_LASER_I"
+            }
+        ],
+        "nav": {
+            "flightMode": "CRUISE",
+            "route": {
+                "arrival": "2023-05-30T02:52:21.473Z",
+                "departure": {
+                    "symbol": "X1-VS75-97637F",
+                    "systemSymbol": "X1-VS75",
+                    "type": "ORBITAL_STATION",
+                    "x": -46,
+                    "y": -19
+                },
+                "departureTime": "2023-05-30T02:49:06.474Z",
+                "destination": {
+                    "symbol": "X1-VS75-67965Z",
+                    "systemSymbol": "X1-VS75",
+                    "type": "ASTEROID_FIELD",
+                    "x": -11,
+                    "y": -27
+                }
+            },
+            "status": "IN_ORBIT",
+            "systemSymbol": "X1-VS75",
+            "waypointSymbol": "X1-VS75-67965Z"
+        },
+        "reactor": {
+            "condition": 100,
+            "description": "A basic chemical power reactor, used to generate electricity from chemical reactions.",
+            "name": "Chemical Reactor I",
+            "powerOutput": 15,
+            "requirements": {
+                "crew": 3
+            },
+            "symbol": "REACTOR_CHEMICAL_I"
+        },
+        "registration": {
+            "factionSymbol": "COSMIC",
+            "name": "MCLDS-2",
+            "role": "EXCAVATOR"
+        },
+        "symbol": "MCLDS-2"
+    }
+}
