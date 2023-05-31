@@ -17,6 +17,7 @@ def type_watch(source, value):
 snoop.install(watch_extras=[type_watch])
 
 
+@snoop
 def orbit():
     """
     First you have to orbit the asteroid field.
@@ -27,7 +28,11 @@ def orbit():
     }
     url = "https://api.spacetraders.io/v2/my/ships/MCLDS-2/orbit"
 
+    response = requests.post(url, headers=headers)
+    print(response.json())
 
+
+@snoop
 def extraction():
     """
     Function will be called by capacity_checker module,
@@ -43,6 +48,7 @@ def extraction():
     print(response.json())
 
 
+@snoop
 def start():
     """
     Initiates the former functions.

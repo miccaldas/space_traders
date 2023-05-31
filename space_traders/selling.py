@@ -23,21 +23,26 @@ load_dotenv()
 
 @snoop
 def prod_lst():
-    """"""
+    """
+    Creates a list of tuples with all the mined ore and its quantities.
+    """
     with open("capacity.json", "r") as f:
         fungibles = json.load(f)
 
     wares = fungibles["data"]["cargo"]["inventory"]
     products = []
     for i in wares:
-        products.append((i["symbol"], i["units"]))
+        if i != "COPPER_ORE":
+            products.append((i["symbol"], i["units"]))
 
     return products
 
 
 @snoop
 def dock():
-    """"""
+    """
+    Docks the ship to the market.
+    """
     headers = {
         "Content-Type": "application/json",
         "Authorization": os.environ.get("SPACETOKEN"),
@@ -50,7 +55,10 @@ def dock():
 
 @snoop
 def selling(symbol, units):
-    """"""
+    """
+    Function will be iterated by the different ores that were mined
+    in the next function.
+    """
 
     headers = {
         "Content-Type": "application/json",
@@ -67,14 +75,12 @@ def selling(symbol, units):
 
 
 @snoop
-def start():
-    """"""
+def sell_start():
+    """
+    Initiates all the modules.
+    """
     products = prod_lst()
-    # dock()
+    dock()
 
-    # for i in range(len(products)):
-    selling("SILVER_ORE", 5)
-
-
-if __name__ == "__main__":
-    start()
+    for i in range(len(products)):
+        selling(products[i][0], products[i][1])

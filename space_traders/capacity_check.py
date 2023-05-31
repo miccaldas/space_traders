@@ -1,16 +1,17 @@
 """
-This module checks  hourly if the ship's hull is almost full.
-If it's not it'll start the prospecting.py module.
+This module checks, in three minutes intervals, if the ship's hull is almost full.
+If it's not it'll start the prospecting.py module, if it is, it'll start the
+selling midule.
 """
 import json
 import os
 from time import sleep
 
 import requests
-import requests_cache
 import snoop
 from dotenv import load_dotenv
 from extraction import start
+from selling import sell_start
 from snoop import pp
 
 
@@ -19,7 +20,6 @@ def type_watch(source, value):
 
 
 snoop.install(watch_extras=[type_watch])
-
 load_dotenv()
 
 
@@ -32,9 +32,8 @@ def capacity_check(payload):
     }
     url = "https://api.spacetraders.io/v2/my/ships/MCLDS-2"
 
-    payload["format"] = "json"
-    response = requests.get(url, headers=headers, params=payload)
-    return response
+    response = requests.get(url, headers=headers)
+    return response.json()
 
 
 r = capacity_check({"method": "GET"})
@@ -46,12 +45,14 @@ def jprint(obj):
         f.write(text)
 
 
-jprint(r.json())
+jprint(r)
 
-carga = r.json()
-capacity = carga["data"]["cargo"]["capacity"]
+
+capacity = r["data"]["cargo"]["capacity"]
 pp(capacity)
-loot = carga["data"]["cargo"]["units"]
+loot = r["data"]["cargo"]["units"]
 pp(loot)
-if capacity - loot > 3:
+if capacity - loot > 4:
     start()
+else:
+    sell_start()
